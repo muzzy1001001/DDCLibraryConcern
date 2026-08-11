@@ -25,7 +25,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routes
 // ==========================================
 app.get('/', (req, res) => {
-  const hour = new Date().getHours();
+  // Force Philippine time (UTC+8) regardless of server's local timezone
+  const phTimeString = new Date().toLocaleString('en-US', { timeZone: 'Asia/Manila' });
+  const hour = new Date(phTimeString).getHours();
+
   let greeting;
   if (hour < 12) greeting = 'Good morning';
   else if (hour < 18) greeting = 'Good afternoon';

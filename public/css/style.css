@@ -97,7 +97,16 @@ body {
   line-height: 1.1;
 }
 
-.hours-badge {
+.hours-row {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap; /* so they stack on small screens instead of overflowing */
+  margin-top: 10px;
+}
+
+.hours-badge1,
+.hours-badge2 {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -105,9 +114,10 @@ body {
   color: var(--primary-purple);
   padding: 14px 30px;
   border-radius: 50px;
-  font-size: 2.2rem;
+  font-size: 2.0rem;
   font-weight: 600;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  white-space: nowrap; /* keep each badge's text on one line */
 }
 
 .hours-icon {

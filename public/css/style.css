@@ -105,6 +105,13 @@ body {
   margin-top: 10px;
 }
 
+.hours-row {
+  display: flex;
+  flex-wrap: wrap; /* let badges wrap onto their own line when needed */
+  gap: 12px;
+  justify-content: center;
+}
+
 .hours-badge1,
 .hours-badge2 {
   display: inline-flex;
@@ -117,7 +124,31 @@ body {
   font-size: 2.0rem;
   font-weight: 600;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  white-space: nowrap; /* keep each badge's text on one line */
+  white-space: nowrap;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .hours-badge1,
+  .hours-badge2 {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .hours-row {
+    flex-direction: column; /* stack badges vertically */
+    align-items: center;
+  }
+  .hours-badge1,
+  .hours-badge2 {
+    font-size: 0.95rem;
+    padding: 8px 16px;
+    white-space: normal; /* allow text to wrap inside badge if still tight */
+    text-align: center;
+  }
 }
 
 .hours-icon {
